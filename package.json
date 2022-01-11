@@ -1,0 +1,39 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "Web Application using open weather api",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shahed1998/WeatherApp.git"
+  },
+  "author": "Shahed Chowdhury Omi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shahed1998/WeatherApp/issues"
+  },
+  "homepage": "https://github.com/Shahed1998/WeatherApp#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^11.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1"
+  }
+}
