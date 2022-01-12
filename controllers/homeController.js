@@ -1,9 +1,5 @@
 const axios = require('axios');
 
-exports.renderHome = (req, res) => {
-  res.status(200).render('home');
-};
-
 exports.getData = async (req, res) => {
   try {
     const { cityName } = req.body;
