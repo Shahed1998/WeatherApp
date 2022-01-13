@@ -7,6 +7,7 @@ exports.renderHome = (req, res) => {
 exports.getData = async (req, res) => {
   try {
     const { cityName } = req.body;
+    console.log(cityName);
     const apiData = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${process.env.API_KEY}`
     );

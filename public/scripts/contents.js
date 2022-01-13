@@ -9,8 +9,44 @@ export default function contents(parsedData) {
     '.humid'
   ).textContent = `${parsedData.data.humidity} %`;
 
-  // Date
-  const unixTimeStamp = parsedData.data.date;
-  const date = new Date(unixTimeStamp * 1000);
-  document.querySelector('.date').textContent = `${date}`;
+  // ----------------------------- Date
+  // Obtain current local time
+  // Find local time offset
+  // Obtain current UTC time
+  // Obtain destination city's offset in hours and convert to milliseconds
+  // Convert to readable format
+  if (parsedData.data.timezone === null) {
+    document.querySelector('.date').innerHTML = `
+  Not found`;
+  } else {
+    const d = new Date();
+    const localTime = d.getTime();
+    const localOffset = d.getTimezoneOffset() * 60000;
+    const utc = localTime + localOffset;
+    const city = utc + 1000 * parsedData.data.timezone;
+    const nd = new Date(city);
+    document.querySelector('.date').innerHTML = `
+    Time: ${nd.getHours()}: ${nd.getMinutes()}: ${nd.getSeconds()}<br/> ${nd.toDateString()}`;
+  }
+}
+
+// ---------------------- Failed to fetch
+export function notFound() {
+  const parsedData = {
+    Status: 'Failure',
+    data: {
+      city: 'Not Found',
+      description: 'Not Found',
+      icon: 'Not Found',
+      temperature: 'Not Found',
+      humidity: 'Not Found',
+      pressure: 'Not Found',
+      timezone: null,
+      date: 'Not Found',
+      sunrise: 'Not Found',
+      sunset: 'Not Found',
+    },
+  };
+
+  return parsedData;
 }

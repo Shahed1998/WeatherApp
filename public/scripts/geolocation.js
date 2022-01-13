@@ -1,26 +1,5 @@
 /* eslint-disable import/extensions */
-import contents from './contents.js';
-
-// ---------------------- Failed to fetch
-function notFound() {
-  const parsedData = {
-    Status: 'Failure',
-    data: {
-      city: 'Not Found',
-      description: 'Not Found',
-      icon: 'Not Found',
-      temperature: 'Not Found',
-      humidity: 'Not Found',
-      pressure: 'Not Found',
-      timezone: 'Not Found',
-      date: 'Not Found',
-      sunrise: 'Not Found',
-      sunset: 'Not Found',
-    },
-  };
-
-  return parsedData;
-}
+import contents, { notFound } from './contents.js';
 
 // ----------------------- Success
 async function success(position) {
