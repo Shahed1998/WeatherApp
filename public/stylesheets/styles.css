@@ -1,26 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 #parent {
   width: 100%;
   min-height: 100vh;
-  display: -webkit-flex; /* Safari */
-  display: flex;
 }
 
 .child {
-  -webkit-flex: 1; /* Safari */
-  -ms-flex: 1; /* IE 10 */
-  display: inline-block;
-  flex: 1;
+  float: left;
+  width: 50%;
 }
 
 #form {
   min-height: 100vh;
-  width: 30%;
 }
 
 #form {
@@ -66,4 +64,23 @@
 #data-table td,
 #data-table th {
   padding: 1rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  #inner-container {
+    width: 80%;
+  }
+
+  #form {
+    min-height: 50vh;
+  }
+
+  .child {
+    width: 100%;
+  }
+
+  #showData .inner-content .body {
+    width: 90%;
+    margin: 2rem auto;
+  }
 }
