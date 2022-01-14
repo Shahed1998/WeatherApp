@@ -1,49 +1,26 @@
 /* eslint-disable import/extensions */
-import contents, { notFound } from './contents.js';
-import geoLocation from './geolocation.js';
+import geoLocation, { cityFetch } from './locator.js';
 
-// IIFE
+// ------------------------------- variable declarations
+const cityButton = document.querySelector('#cityButton');
+const cityName = document.querySelector('.city');
+
+// IIFE (Immediately Invoked Function Expression)
 (() => {
   geoLocation();
 })();
 
-// ------------------------------- Button click
-const cityButton = document.querySelector('#cityButton');
-cityButton.addEventListener('click', () => {
-  (async () => {
-    const cityName = document.querySelector('.city').value;
+// ------------------------------- Events
+cityButton.addEventListener('click', () => cityFetch());
 
-    if (cityName.length !== 0) {
-      try {
-        const response = await fetch('/', {
-          method: 'POST',
-          body: JSON.stringify({ cityName }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-
-        if (response.status === 200) {
-          const data = await response.text();
-          const parsedData = JSON.parse(data);
-          // Contents
-          contents(parsedData);
-        } else {
-          const parsedData = notFound();
-          contents(parsedData);
-        }
-      } catch (err) {
-        const parsedData = notFound();
-        contents(parsedData);
-      }
-    } else {
-      geoLocation();
-    }
-  })();
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    cityFetch();
+  }
 });
 
 // ------------------------------- Empty
-const cityName = document.querySelector('.city');
 cityName.addEventListener('keyup', () => {
   if (cityName.value.length === 0) {
     geoLocation();

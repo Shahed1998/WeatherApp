@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 // ----------------------- Contents
 export default function contents(parsedData) {
   document.querySelector('.loc').textContent = parsedData.data.city;
@@ -25,8 +26,16 @@ export default function contents(parsedData) {
     const utc = localTime + localOffset;
     const city = utc + 1000 * parsedData.data.timezone;
     const nd = new Date(city);
+    let hours = nd.getHours();
+    let meridiem = 'am';
+
+    if (hours >= 12) {
+      hours -= 12;
+      meridiem = 'pm';
+    }
+
     document.querySelector('.date').innerHTML = `
-    Time: ${nd.getHours()}: ${nd.getMinutes()}: ${nd.getSeconds()}<br/> ${nd.toDateString()}`;
+    ${hours}: ${nd.getMinutes()} ${meridiem}<br/> ${nd.toDateString()}`;
   }
 }
 

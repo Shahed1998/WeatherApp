@@ -7,6 +7,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+  color: #fff;
+  background: linear-gradient(45deg, #191a19, #3f3351);
+}
+
 #parent {
   width: 100%;
   min-height: 100vh;
@@ -15,6 +20,10 @@
 .child {
   float: left;
   width: 50%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #form {
@@ -44,12 +53,11 @@
 }
 
 .inner-content {
-  margin-top: 2rem;
   text-align: center;
 }
 
 #showData .inner-content .body {
-  width: 50%;
+  width: 60%;
   margin: 2rem auto;
 }
 
@@ -72,7 +80,7 @@
   }
 
   #form {
-    min-height: 50vh;
+    min-height: 40vh;
   }
 
   .child {
